@@ -71,7 +71,7 @@ router.get('/categories/:categorieName', async (req, res) => {
 
 
 //sous categories routes
-router.post('/api/addSousCategories',  upload.single('image'), sousCategorieController.addSousCategorie);
+router.post('/api/addSousCategories',  upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), sousCategorieController.addSousCategorie);
 router.get('/api/getAllSousCategories', sousCategorieController.getAllSousCategories);
 router.get('/api/getSousCategorie/:id', sousCategorieController.getSousCategorie);
 router.get('/sous-categorie/:sousCategorieName', async (req, res) => {

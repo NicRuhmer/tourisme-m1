@@ -7,8 +7,18 @@ const sousCategorieController = {
         try {
             const { name, categorieId, description } = req.body;
 
-            // Traitez l'image téléchargée, si elle existe
-            const imagePath = req.file ? '/uploads/' + req.file.filename : null;
+            // console.log(req.files);
+
+            let imagePath = null;
+            let videoPath = null;
+
+            if (req.files['image'] && req.files['image'].length > 0) {
+                imagePath = '/uploads/images/' + req.files['image'][0].filename;
+            }
+
+            if (req.files['video'] && req.files['video'].length > 0) {
+                videoPath = '/uploads/videos/' + req.files['video'][0].filename;
+            }
 
             // Vérifiez si la sous-catégorie existe déjà
             const sousCategorieExistante = await sousCategorieModel.findOne({ name });
