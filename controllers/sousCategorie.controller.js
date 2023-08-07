@@ -68,6 +68,49 @@ const sousCategorieController = {
             res.status(500).json({ message: "Erreur interne du serveur" });
         }
     },
+
+    updateSousCategorie: async (req, res) => {
+        try {
+            const { name, categorieId, description } = req.body;
+            const sousCategorieId = req.params.id;
+
+            let imagePath = null;
+            let videoPath = null;
+    
+            if (req.files['image'] && req.files['image'].length > 0) {
+                imagePath = '/uploads/images/' + req.files['image'][0].filename;
+            }
+    
+            // Trouvez et mettez à jour la sous-catégorie
+            await sousCategorieModel.findByIdAndUpdate(sousCategorieId, {
+                name: name,
+                categorie: categorieId,
+                description: description,
+                image: imagePath ? imagePath : sousCategorie.image
+            });
+    
+            res.redirect('/dashboard');
+    
+        } catch (error) {
+            console.error("Erreur lors de la mise à jour de la sous-catégorie:", error);
+            res.status(500).json({ message: "Erreur interne du serveur" });
+        }
+    },
+
+    deleteSousCategorie: async (req, res) => {
+        try {
+            const sousCategorieId = req.params.id;
+    
+            await sousCategorieModel.findByIdAndDelete(sousCategorieId);
+    
+            res.redirect('/dashboard');
+    
+        } catch (error) {
+            console.error("Erreur lors de la suppression de la sous-catégorie:", error);
+            res.status(500).json({ message: "Erreur interne du serveur" });
+        }
+    },
+
 };
 
 module.exports = sousCategorieController;

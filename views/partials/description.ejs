@@ -1,23 +1,25 @@
 <%- include('layouts/header.ejs', { title: 'Dahsboard' }) %>
     <div class="job">
         <div class="header">
-            <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path xmlns="http://www.w3.org/2000/svg"
-                        d="M512 503.5H381.7a48 48 0 01-45.3-32.1L265 268.1l-9-25.5 2.7-124.6L338.2 8.5l23.5 67.1L512 503.5z"
-                        fill="#0473ff" data-original="#28b446" />
-                    <path xmlns="http://www.w3.org/2000/svg" fill="#0473ff" data-original="#219b38"
-                        d="M361.7 75.6L265 268.1l-9-25.5 2.7-124.6L338.2 8.5z" />
-                    <path xmlns="http://www.w3.org/2000/svg"
-                        d="M338.2 8.5l-82.2 234-80.4 228.9a48 48 0 01-45.3 32.1H0l173.8-495h164.4z" fill="#0473ff"
-                        data-original="#518ef8" />
-                </svg>
-                Anthems
-            </div>
+            <a href="/dashboard">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="M512 503.5H381.7a48 48 0 01-45.3-32.1L265 268.1l-9-25.5 2.7-124.6L338.2 8.5l23.5 67.1L512 503.5z"
+                            fill="#0473ff" data-original="#28b446" />
+                        <path xmlns="http://www.w3.org/2000/svg" fill="#0473ff" data-original="#219b38"
+                            d="M361.7 75.6L265 268.1l-9-25.5 2.7-124.6L338.2 8.5z" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="M338.2 8.5l-82.2 234-80.4 228.9a48 48 0 01-45.3 32.1H0l173.8-495h164.4z" fill="#0473ff"
+                            data-original="#518ef8" />
+                    </svg>
+                    Anthems
+                </div>
+            </a>
             <div class="user-settings">
-                <img class="user-profile"
-                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="">
-                <div class="user-name">Nic Ruhmer</div>
+                <div class="user-settings">
+                    <div class="user-name"><a href="/logout">Se déconnecter</a></div>
+                </div>
             </div>
         </div>
         <div class="wrapper">
@@ -110,7 +112,9 @@
                                 <%= moment(sites[0].createdAt).format('D MMMM YYYY') %>
                             </span></div>
                     </div>
-                    <p><%= sites[0].description %></p>
+                    <p>
+                        <%= sites[0].description %>
+                    </p>
                     <div class="job-overview">
                         <% if (sites[0].image) { %>
                             <img class="job-bg" src="<%= sites[0].image %>" alt="<%= sites.name %>">
@@ -131,7 +135,7 @@
                                     <video width="320" height="240" controls class="job-bg">
                                         <source src="<%= sites[0].video %>" type="video/mp4">
                                     </video>
-                                    
+
                                 </div>
                             </div>
                             <% } %>

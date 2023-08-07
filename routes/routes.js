@@ -89,6 +89,7 @@ router.get('/sous-categorie/:sousCategorieName', async (req, res) => {
     res.render('partials/sites', { sites: sitesTouristiques, sousCategories: sousCategories, sousCategorie: sousCategorie, categories: categories, sousCategorieName: sousCategorieName, title: 'Sites' });
 });
 
+router.post('/api/updateSousCategorie/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), sousCategorieController.updateSousCategorie);
 
 //sites touristiques routes
 router.post('/api/addSite', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), siteController.addSite);

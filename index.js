@@ -6,6 +6,8 @@ const path = require('path');
 const static = require('serve-static');
 const session = require('express-session');
 const multer = require('multer');
+const methodOverride = require('method-override');
+const fs = require('fs');
 
 const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -85,6 +87,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(methodOverride('_method'));
 
 //set template engine
 app.set('view engine', 'ejs');
@@ -102,6 +105,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     .catch(err => console.log(err));
 
 // 
+
+// router.put('/api/updateSousCategorie/:id', sousCategorieController.updateSousCategorie);
 
 
 
