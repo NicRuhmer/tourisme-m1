@@ -36,8 +36,8 @@ router.get('/authentification', (req, res) => {
 });
 
 // application android api authentification
-router.post('/login', appUserController.login);
-router.post('/register', appUserController.register);
+router.post('/api/login', appUserController.login);
+router.post('/api/register', appUserController.register);
 router.get('/logout', appUserController.logout);
 router.get('/refresh_token', appUserController.refreshToken);
 router.get('/api/info/:id', appUserController.getUser);

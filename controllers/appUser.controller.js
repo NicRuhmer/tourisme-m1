@@ -19,11 +19,49 @@ const appUserController = {
 
         try {
             const user = await newUser.save();
-            console.log("tonga ato");
-            return res.status(201).json(user);
+            res.status(201).send(user);
         }
         catch (err) {
-            return res.status(500).json(err);
+            res.status(500).send(err);
+        }
+    },
+
+    update: async (req, res) => {
+
+        const hashedPassword = bcrypt.hashSync(password, 10);
+
+        const dataUpdated = {
+            name: req.body.name,
+            email: req.body.email
+        };
+
+        if (req.body.password) {
+            dataUpdated = {
+                name: req.body.name,
+                email: req.body.email, password: hashedPassword
+            };
+        }
+
+
+        try {
+            if (req.body.name != null && req.body.email != null) {
+                appUserModel.findByIdAndUpdate(
+                    req.params.id,
+                    dataUpdated,
+                    { upsert: true },
+                    function (err, doc) {
+                        if (err) {
+                            res.status(400).send({ status: 400, message: "Erreur lors de la modification de donnée!" });
+                        } else {
+                            res.status(200).send({ status: 200, message: "Success" });
+                        }
+                    });
+            } else {
+                res.status(400).send({ status: 400, message: "Champs invalides" });
+            }
+        }
+        catch (err) {
+            res.status(400).send(err);
         }
     },
 
@@ -31,33 +69,32 @@ const appUserController = {
         try {
             const user = await appUserModel.findOne({ email: req.body.email });
             if (!user) {
-                return res.status(401).json({ message: "Connection échoué" });
+                res.status(400).send({ message: "Connection échoué" });
             }
             const passwordMatch = await bcrypt.compare(req.body.password, user.password);
             if (!passwordMatch) {
-                return res.status(401).json({ message: "Connection échoué" });
+                res.status(400).send({ message: "Connection échoué" });
             }
             const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-            req.session.user = user; // stocke l'utilisateur dans la session
-            req.session.message = "Connexion réussie"; // stocke un message dans la session
-            res.cookie('token', token); // stocke le jeton dans un cookie
-            // return res.redirect('/dashboard', { infoUser }); // redirige vers la page de tableau de bord
-            // Instead of redirecting, return the user information
-            res.status(200).json({
-                message: 'Connexion réussie',
-                user: user,
-                token: token
-            });
+            req.session.user = user;
+            req.session.message = "Connexion réussie";
+            res.cookie('token', token);
+
+            res.status(200).send(user);
         }
         catch (err) {
-            return res.status(500).json(err);
+            res.status(400).send(err.message);
         }
     },
+
+    
+
     logout: (req, res) => {
         req.session.destroy(); // détruit la session
         res.clearCookie('token'); // supprime le cookie de jeton
         return res.redirect('/authentification'); // redirige vers la page de connexion
     },
+
     refreshToken: async (req, res) => {
         try {
             const user = await appUserModel.findById(req.user);
