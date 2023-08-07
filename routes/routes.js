@@ -14,6 +14,11 @@ moment.locale('fr');
 
 const decode = require('decode-html');
 
+
+const clientController = require('../controllers/ClientController');
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 router.get('/', (req, res) => {
     res.render('index', { title: 'Home' });
 });
@@ -35,13 +40,14 @@ router.get('/authentification', (req, res) => {
     res.render('authentification/login', { title: 'Login' });
 });
 
-// application android api authentification
+//+++++++++++++++++application android api authentification +++++++++++++++++
 
 router.get('/logout', appUserController.logout);
 router.get('/refresh_token', appUserController.refreshToken);
 router.get('/api/info/:id', appUserController.getUser);
 
-// application plateforme api authentification
+// +++++++++++++++++application plateforme api authentification+++++++++++++++++
+
 router.post('/loginAdmin', userController.login);
 router.post('/registerAdmin', userController.register);
 router.get('/logoutAdmin', userController.logout);
@@ -54,17 +60,20 @@ router.get('/infoAdmin', router.get('/infoAdmin', (req, res) => {
 
 
 //++++++++++++++++++ API Client ++++++++++++++++++++++++
+
 router.post('/api/login', appUserController.login);
 router.post('/api/register', appUserController.register);
-router.put('/api/update/:id', appUserController.update);
+router.put('/api/update/:id', (req, res) => {
+    appUserController.update(req, res);
+});
 
-router.get('/api/getAllCategories', categorieController.getAllCategories);
-router.get('/api/getAllSousCategories/:id', sousCategorieController.getAllSousCategoriesByCategorie);
-router.get('/api/getAllSites/:id', siteController.getAllSites);
+router.get('/api/menus', clientController.getListCategorie);
+router.get('/api/sous-menus/:id', clientController.getListSousCategorie);
+router.get('/api/site-touristiques/:id', clientController.getListSite);
 router.get('/api/getSite/:id', siteController.getSite);
 
 
-//+++++++++++++++++categories routes
+//+++++++++++++++++categories routes+++++++++++++++++
 
 router.post('/api/addCategories', categorieController.addCategorie);
 
@@ -76,7 +85,7 @@ router.get('/categories/:categorieName', async (req, res) => {
     if (!categorie) {
         return res.status(404).send("Catégorie introuvable");
     }
-    
+
     const sousCategories = await sousCategorieModel.find({ categorie: categorie._id });
     const categories = await categorieController.getAllCategories();
 
@@ -84,15 +93,16 @@ router.get('/categories/:categorieName', async (req, res) => {
 });
 
 
-//+++++++++++++++++sous categories routes
-router.post('/api/addSousCategories',  upload.single('image'), sousCategorieController.addSousCategorie);
+//+++++++++++++++++sous categories routes+++++++++++++++++
+
+router.post('/api/addSousCategories', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), sousCategorieController.addSousCategorie);
 router.get('/api/getAllSousCategories', sousCategorieController.getAllSousCategories);
 
 router.get('/api/getSousCategorie/:id', sousCategorieController.getSousCategorie);
 
 
 router.get('/sous-categorie/:sousCategorieName', async (req, res) => {
-    const sousCategorieName = req.params.sousCategorieName;
+    var sousCategorieName = req.params.sousCategorieName;
 
     const sousCategorie = await sousCategorieModel.findOne({ name: sousCategorieName });
     if (!sousCategorie) {
@@ -107,18 +117,19 @@ router.get('/sous-categorie/:sousCategorieName', async (req, res) => {
 });
 
 
-//+++++++++++++++++++++++sites touristiques routes
+//+++++++++++++++++++++++sites touristiques routes+++++++++++++++++
+
 router.post('/api/addSite', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), siteController.addSite);
 
 router.get('/site/:siteName', async (req, res) => {
-    const siteName = req.params.siteName;
+    var siteName = req.params.siteName;
 
     const sousCategories = await sousCategorieController.getAllSousCategories();
     const categories = await categorieController.getAllCategories();
 
     const sites = await siteModel.find({ name: siteName });
 
-    res.render('partials/description', { sites: sites ,sousCategories: sousCategories, categories: categories, moment: moment, decode: decode, title: 'Site' });
+    res.render('partials/description', { sites: sites, sousCategories: sousCategories, categories: categories, moment: moment, decode: decode, title: 'Site' });
 
 });
 

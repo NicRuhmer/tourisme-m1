@@ -10,24 +10,29 @@ const appUserController = {
         try {
 
 
-            const password = req.body.password;
-            if (!password) {
-                return res.status(400).json({ message: "Le mot de passe est manquant" });
-            }
+            if (req.body.name != null && req.body.email != null) {
+                var password = req.body.password;
+                if (!password) {
+                    return res.status(400).send({ message: "Le mot de passe est manquant" });
+                }
 
-            const tmp = await appUserModel.find({ email: req.body.email });
-            if (tmp.length > 0) {
-                res.status(400).send({ status: 400, message: "Email est déjà utiliser" });
+                const tmp = await appUserModel.find({ email: req.body.email });
+                if (tmp.length > 0) {
+                    res.status(400).send({ status: 400, message: "Email est déjà utiliser" });
+                } else {
+                    const hashedPassword = bcrypt.hashSync(password, 10);
+                    const newUser = new appUserModel({
+                        name: req.body.name,
+                        email: req.body.email,
+                        password: hashedPassword,
+                        token: ""
+                    });
+                    const user = await newUser.save();
+                    res.status(200).send(user);
+                }
+
             } else {
-                const hashedPassword = bcrypt.hashSync(password, 10);
-                const newUser = new appUserModel({
-                    name: req.body.name,
-                    email: req.body.email,
-                    password: hashedPassword,
-                    token: ""
-                });
-                const user = await newUser.save();
-                res.status(200).send(user);
+                res.status(400).send({ status: 400, message: "Données invalides" });
             }
 
         }
@@ -40,40 +45,48 @@ const appUserController = {
     update: async (req, res) => {
         res.setHeader("Content-Type", "application/json");
 
-        const hashedPassword = bcrypt.hashSync(password, 10);
-
-        const dataUpdated = {
-            name: req.body.name,
-            email: req.body.email
-        };
-
-        if (req.body.password) {
-            dataUpdated = {
-                name: req.body.name,
-                email: req.body.email, password: hashedPassword
-            };
-        }
-
 
         try {
+
             if (req.body.name != null && req.body.email != null) {
-                appUserModel.findByIdAndUpdate(
-                    req.params.id,
-                    dataUpdated,
-                    { upsert: true },
-                    function (err, doc) {
-                        if (err) {
-                            res.status(400).send({ status: 400, message: "Erreur lors de la modification de donnée!" });
-                        } else {
-                            res.status(200).send({ status: 200, message: "Success" });
-                        }
+
+                if (req.body.password != "" && req.body.password != null) {
+                    const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+                    const dataUpdated2 = {
+                        name: req.body.name,
+                        email: req.body.email,
+                        password: hashedPassword
+                    };
+                    appUserModel.findByIdAndUpdate(req.params.id, dataUpdated2, { upsert: true }).then((result) => {
+                        res.status(200).send(result);
+
+                    }).catch((err) => {
+                        console.log("tonga 3: " + err.message);
+                        res.status(400).send({ status: 400, message: err.message });
                     });
+                } else {
+                    const dataUpdated = {
+                        name: req.body.name,
+                        email: req.body.email
+                    };
+
+                    appUserModel.findByIdAndUpdate(req.params.id, dataUpdated, { upsert: true }).then((result) => {
+                        res.status(200).send(result);
+
+                    }).catch((err) => {
+                        console.log("tonga 3: " + err.message);
+                        res.status(400).send({ status: 400, message: err.message });
+                    });
+                }
+
             } else {
+
                 res.status(400).send({ status: 400, message: "Champs invalides" });
             }
         }
         catch (err) {
-            res.status(400).send(err);
+            console.log(err.message);
+            res.status(400).send(err.message);
         }
     },
 
@@ -81,20 +94,26 @@ const appUserController = {
         res.setHeader("Content-Type", "application/json");
 
         try {
+
             const user = await appUserModel.findOne({ email: req.body.email });
+
+
             if (!user) {
                 res.status(400).send({ message: "Connection échoué" });
             }
             const passwordMatch = await bcrypt.compare(req.body.password, user.password);
             if (!passwordMatch) {
                 res.status(400).send({ message: "Connection échoué" });
-            }
-            const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-            req.session.user = user;
-            req.session.message = "Connexion réussie";
-            res.cookie('token', token);
+            } else {
 
-            res.status(200).send(user);
+                const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+                req.session.user = user;
+                req.session.message = "Connexion réussie";
+                res.cookie('token', token);
+
+                res.status(200).send(user);
+            }
+
         }
         catch (err) {
             res.status(400).send(err.message);

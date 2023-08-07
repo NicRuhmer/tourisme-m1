@@ -42,8 +42,10 @@ const siteController = {
     },
 
     getAllSites: async (req, res) => {
+        res.setHeader("Content-Type", "application/json");
         try {
-            const sites = await siteModel.find({ sousCategorie: req.params.id }).populate({ path: "sousCategorie" });
+            const sites = await siteModel.find({ sousCategorie: req.params.id }).select({ _id: 1, name: 1, description: 1, image: 1, video: 1, contenu: 1 });
+
             res.status(200).send(sites);
         } catch (error) {
             console.error("Erreur lors de la récupération des sites touristiques:", error);
@@ -52,12 +54,16 @@ const siteController = {
     },
 
     getSite: async (req, res) => {
+        res.setHeader("Content-Type", "application/json");
+
+
         try {
-            const site = await siteModel.findById(req.params.id).populate({path:"sousCategorie"});
+            const site = await siteModel.findById(req.params.id);
             if (!site) {
-                 res.status(400).send({ message: "Site touristique introuvable" });
+                res.status(400).send({ message: "Site touristique introuvable" });
             }
             res.status(200).send(site);
+
         } catch (error) {
             console.error("Erreur lors de la récupération du site touristique:", error);
             res.status(400).send({ message: "Erreur interne du serveur" });

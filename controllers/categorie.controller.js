@@ -1,17 +1,32 @@
 const categorieModel = require('../models/categorie.model');
 
 const categorieController = {
-    getAllCategories: async (req, res) => {
-     
+    getAllCategories: () => {
+
+        return new Promise(async (resolve, reject) => {
+            try {
+                const categories = await categorieModel.find(); // Trouver toutes les catégories
+
+                return resolve(categories);
+            } catch (error) {
+                reject({ status: 400, message: "Erreur" });
+            }
+        });
+
+    },
+
+    getApiAllCategories: async (req, res) => {
+
         try {
             const categories = await categorieModel.find(); // Trouver toutes les catégories
-     
-           res.status(200).json(categories);
+
+            res.status(200).json(categories);
         } catch (error) {
             console.error("Erreur lors de la récupération des catégories:", error);
             res.status(400).send({ message: "Erreur interne du serveur" });
         }
     },
+
     addCategorie: async (req, res) => {
         try {
             const { name } = req.body; // Extrayez directement 'name' de req.body

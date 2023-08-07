@@ -7,7 +7,18 @@ const sousCategorieController = {
         try {
             const { name, categorieId, description } = req.body;
 
-            const imagePath = req.file ? '/uploads/' + req.file.filename : null;
+            // console.log(req.files);
+
+            let imagePath = null;
+            let videoPath = null;
+
+            if (req.files['image'] && req.files['image'].length > 0) {
+                imagePath = '/uploads/images/' + req.files['image'][0].filename;
+            }
+
+            if (req.files['video'] && req.files['video'].length > 0) {
+                videoPath = '/uploads/videos/' + req.files['video'][0].filename;
+            }
 
             const sousCategorieExistante = await sousCategorieModel.findOne({ name });
             if (sousCategorieExistante) {
@@ -34,7 +45,7 @@ const sousCategorieController = {
         }
     },
 
-    getAllSousCategories: async (req, res) => {
+    getApiSousCategories: async (req, res) => {
 
         try {
             const sousCategories = await sousCategorieModel.find().populate("categorie");
@@ -45,6 +56,21 @@ const sousCategorieController = {
             res.status(400).send({ message: "Erreur interne du serveur" });
         }
     },
+
+    getAllSousCategories:  () => {
+
+        return new Promise(async (resolve, reject) => {
+            try {
+                const sousCategories = await sousCategorieModel.find().populate("categorie");
+               resolve(sousCategories);
+    
+            } catch (error) {
+                console.error("Erreur lors de la récupération des sous-catégories:", error);
+                reject({ message: "Erreur interne du serveur" });
+            }
+        });
+    },
+    
 
     getAllSousCategoriesByCategorie: async (req, res) => {
         res.setHeader("Content-Type", "application/json");
