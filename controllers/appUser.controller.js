@@ -3,30 +3,42 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const appUserController = {
-    register: async (req, res) => {
-        const password = req.body.password;
-        if (!password) {
-            return res.status(400).json({ message: "Le mot de passe est manquant" });
-        }
-        const hashedPassword = bcrypt.hashSync(password, 10);
 
-        const newUser = new appUserModel({
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword,
-            token: ""
-        });
+    register: async (req, res) => {
+        res.setHeader("Content-Type", "application/json");
 
         try {
-            const user = await newUser.save();
-            res.status(201).send(user);
+
+
+            const password = req.body.password;
+            if (!password) {
+                return res.status(400).json({ message: "Le mot de passe est manquant" });
+            }
+
+            const tmp = await appUserModel.find({ email: req.body.email });
+            if (tmp.length > 0) {
+                res.status(400).send({ status: 400, message: "Email est déjà utiliser" });
+            } else {
+                const hashedPassword = bcrypt.hashSync(password, 10);
+                const newUser = new appUserModel({
+                    name: req.body.name,
+                    email: req.body.email,
+                    password: hashedPassword,
+                    token: ""
+                });
+                const user = await newUser.save();
+                res.status(200).send(user);
+            }
+
         }
         catch (err) {
-            res.status(500).send(err);
+            console.log(err.message)
+            res.status(400).send(err);
         }
     },
 
     update: async (req, res) => {
+        res.setHeader("Content-Type", "application/json");
 
         const hashedPassword = bcrypt.hashSync(password, 10);
 
@@ -66,6 +78,8 @@ const appUserController = {
     },
 
     login: async (req, res) => {
+        res.setHeader("Content-Type", "application/json");
+
         try {
             const user = await appUserModel.findOne({ email: req.body.email });
             if (!user) {
@@ -87,7 +101,7 @@ const appUserController = {
         }
     },
 
-    
+
 
     logout: (req, res) => {
         req.session.destroy(); // détruit la session

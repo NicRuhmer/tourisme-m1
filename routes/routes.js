@@ -36,8 +36,7 @@ router.get('/authentification', (req, res) => {
 });
 
 // application android api authentification
-router.post('/api/login', appUserController.login);
-router.post('/api/register', appUserController.register);
+
 router.get('/logout', appUserController.logout);
 router.get('/refresh_token', appUserController.refreshToken);
 router.get('/api/info/:id', appUserController.getUser);
@@ -47,14 +46,29 @@ router.post('/loginAdmin', userController.login);
 router.post('/registerAdmin', userController.register);
 router.get('/logoutAdmin', userController.logout);
 router.get('/refresh_tokenAdmin', userController.refreshToken);
+
 router.get('/infoAdmin', router.get('/infoAdmin', (req, res) => {
     userController.getUser();
 })
 );
 
-//categories routes
-router.post('/api/addCategories', categorieController.addCategorie);
+
+//++++++++++++++++++ API Client ++++++++++++++++++++++++
+router.post('/api/login', appUserController.login);
+router.post('/api/register', appUserController.register);
+router.put('/api/update/:id', appUserController.update);
+
 router.get('/api/getAllCategories', categorieController.getAllCategories);
+router.get('/api/getAllSousCategories/:id', sousCategorieController.getAllSousCategoriesByCategorie);
+router.get('/api/getAllSites/:id', siteController.getAllSites);
+router.get('/api/getSite/:id', siteController.getSite);
+
+
+//+++++++++++++++++categories routes
+
+router.post('/api/addCategories', categorieController.addCategorie);
+
+
 router.get('/categories/:categorieName', async (req, res) => {
     const categorieName = req.params.categorieName;
 
@@ -70,10 +84,13 @@ router.get('/categories/:categorieName', async (req, res) => {
 });
 
 
-//sous categories routes
+//+++++++++++++++++sous categories routes
 router.post('/api/addSousCategories',  upload.single('image'), sousCategorieController.addSousCategorie);
 router.get('/api/getAllSousCategories', sousCategorieController.getAllSousCategories);
+
 router.get('/api/getSousCategorie/:id', sousCategorieController.getSousCategorie);
+
+
 router.get('/sous-categorie/:sousCategorieName', async (req, res) => {
     const sousCategorieName = req.params.sousCategorieName;
 
@@ -90,10 +107,9 @@ router.get('/sous-categorie/:sousCategorieName', async (req, res) => {
 });
 
 
-//sites touristiques routes
+//+++++++++++++++++++++++sites touristiques routes
 router.post('/api/addSite', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), siteController.addSite);
-router.get('/api/getAllSites', siteController.getAllSites);
-router.get('/api/getSite/:id', siteController.getSite);
+
 router.get('/site/:siteName', async (req, res) => {
     const siteName = req.params.siteName;
 

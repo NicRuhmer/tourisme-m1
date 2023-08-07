@@ -16,7 +16,7 @@ const siteController = {
             if (req.files['video'] && req.files['video'].length > 0) {
                 videoPath = '/uploads/videos/' + req.files['video'][0].filename;
             }
-            
+
             // Vérifier si le site existe déjà
             const siteExistant = await siteModel.findOne({ name });
             if (siteExistant) {
@@ -43,24 +43,24 @@ const siteController = {
 
     getAllSites: async (req, res) => {
         try {
-            const sites = await siteModel.find().populate("sousCategorie");
-            res.status(200).json({ data: sites });
+            const sites = await siteModel.find({ sousCategorie: req.params.id }).populate({ path: "sousCategorie" });
+            res.status(200).send(sites);
         } catch (error) {
             console.error("Erreur lors de la récupération des sites touristiques:", error);
-            res.status(500).json({ message: "Erreur interne du serveur" });
+            res.status(400).send({ message: "Erreur interne du serveur" });
         }
     },
 
     getSite: async (req, res) => {
         try {
-            const site = await siteModel.findById(req.params.id).populate("sousCategorie");
+            const site = await siteModel.findById(req.params.id).populate({path:"sousCategorie"});
             if (!site) {
-                return res.status(404).json({ message: "Site touristique introuvable" });
+                 res.status(400).send({ message: "Site touristique introuvable" });
             }
-            res.status(200).json({ data: site });
+            res.status(200).send(site);
         } catch (error) {
             console.error("Erreur lors de la récupération du site touristique:", error);
-            res.status(500).json({ message: "Erreur interne du serveur" });
+            res.status(400).send({ message: "Erreur interne du serveur" });
         }
     }
 };
