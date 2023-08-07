@@ -4,48 +4,33 @@
         "points_importants": [
             {
                 "nom": "Faune et flore endémiques",
-                "description": "Environ 90% de la faune et de la flore de Madagascar sont endémiques, notamment les emblématiques lémuriens, qui se trouvent dans leur habitat naturel."
-            },
-            {
-                "nom": "Parc national de Ranomafana",
-                "description": "Forêt tropicale humide dans le centre-est de Madagascar. Abrite une diversité incroyable de vie sauvage, avec de nombreux lémuriens, oiseaux, amphibiens, reptiles et plantes médicinales utilisées localement.",
-                "contenu": "Ce parc est une réserve de forêt tropicale humide qui abrite une faune et une flore variées, notamment différentes espèces de lémuriens, de caméléons, de grenouilles et d'oiseaux endémiques. Les randonnées dans ce parc permettent d'explorer sa biodiversité étonnante."
+                "description": "Environ 90% de la faune et de la flore de Madagascar sont endémiques, notamment les emblématiques lémuriens, qui se trouvent dans leur habitat naturel.",
+                "contenu": "Madagascar, souvent appelée le huitième continent en raison de sa biodiversité unique, offre une véritable explosion d'espèces endémiques. Ces trésors naturels sont le résultat de millions d'années d'évolution isolée sur cette grande île."
             },
             {
                 "nom": "Visites guidées et randonnées",
-                "description": "Recommandé de participer à des visites guidées ou des randonnées organisées par des guides locaux qualifiés pour découvrir les merveilles de ces parcs et repérer les animaux discrets qui s'y cachent."
+                "description": "Recommandé de participer à des visites guidées ou des randonnées organisées par des guides locaux qualifiés pour découvrir les merveilles de ces parcs et repérer les animaux discrets qui s'y cachent.",
+                "contenu": "Faire appel à un guide local permet non seulement d'en apprendre davantage sur l'histoire naturelle et culturelle de la région, mais aussi d'optimiser les chances d'observer la faune et la flore dans leur environnement naturel."
             },
             {
                 "nom": "Parc national de l'Isalo",
-                "description": "Parc national du sud-ouest de Madagascar. Abrite des canyons spectaculaires, des piscines naturelles et une faune et une flore endémiques, notamment des lémuriens, des caméléons, des oiseaux et des plantes succulentes."
+                "description": "Parc national du sud-ouest de Madagascar. Abrite des canyons spectaculaires, des piscines naturelles et une faune et une flore endémiques, notamment des lémuriens, des caméléons, des oiseaux et des plantes succulentes.",
+                "contenu": "Ce parc est un mélange de paysages désertiques, de formations rocheuses et de vallées verdoyantes. Ses circuits de randonnée dévoilent des oasis cachées, des piscines naturelles pour se rafraîchir et des points de vue à couper le souffle."
             },
             {
                 "nom": "Parc national de l'Ankarana",
-                "description": "Parc national du nord de Madagascar. Abrite des formations karstiques spectaculaires, des grottes, des rivières souterraines et une faune et une flore endémiques, notamment des lémuriens, des caméléons, des oiseaux et des plantes succulentes."
-            },
-            {
-                "nom": "Parc national de l'Andringitra",
-                "description": "Parc national du sud de Madagascar. Abrite des montagnes spectaculaires, des forêts tropicales humides, des lacs et une faune et une flore endémiques, notamment des lémuriens, des caméléons, des oiseaux et des plantes succulentes."
-            },
-            {
-                "nom": "Parc national de la Montagne d'Ambre",
-                "description": "Parc national du nord de Madagascar. Abrite une forêt tropicale humide, des cascades, des lacs et une faune et une flore endémiques, notamment des lémuriens, des caméléons, des oiseaux et des plantes succulentes."
-            },
-            {
-                "nom": "Parc zoologique de Tsimbazaza à Antananarivo",
-                "description": "Le parc zoologique de Tsimbazaza abrite une variété d'animaux et de plantes endémiques de Madagascar, dont plusieurs espèces de lémuriens, de caméléons, de serpents, de tortues et d'oiseaux. C'est un lieu privilégié pour découvrir la richesse de la faune malgache et en apprendre davantage sur les efforts de conservation en cours."
-            },
-            {
-                "nom": "Parc national de l'Isalo",
-                "description": "En plus de ses canyons spectaculaires, le parc national de l'Isalo est un refuge pour de nombreuses espèces de lémuriens, de reptiles et de plantes endémiques. Les randonnées dans ce parc offrent l'occasion d'observer la faune et la flore uniques de la région."
+                "description": "Parc national du nord de Madagascar. Abrite des formations karstiques spectaculaires, des grottes, des rivières souterraines et une faune et une flore endémiques, notamment des lémuriens, des caméléons, des oiseaux et des plantes succulentes.",
+                "contenu": "Le parc est particulièrement célèbre pour ses formations de tsingy, d'étranges pics rocheux créés par l'érosion. Ces formations, associées à un réseau complexe de grottes, font de ce parc une expérience inoubliable pour les amateurs de nature et d'aventure."
             },
             {
                 "nom": "Réserve spéciale d'Analamazaotra (Andasibe)",
-                "description": "Cette réserve est réputée pour abriter le plus grand lémurien du monde, l'indri indri, ainsi que d'autres espèces de lémuriens, de caméléons, de grenouilles, de papillons et d'orchidées endémiques. Les guides locaux vous feront découvrir les trésors cachés de cette réserve et les efforts de conservation en cours."
+                "description": "Cette réserve est réputée pour abriter le plus grand lémurien du monde, l'indri indri, ainsi que d'autres espèces de lémuriens, de caméléons, de grenouilles, de papillons et d'orchidées endémiques.",
+                "contenu": "En se promenant dans la réserve, on est souvent captivé par les chants mélodieux de l'indri indri. Cette réserve offre une expérience riche pour les amateurs de biodiversité et est un incontournable pour ceux qui souhaitent voir et entendre le fameux indri en liberté."
             },
             {
                 "nom": "Réserve naturelle intégrale d'Andohahela",
-                "description": "Cette réserve, située dans le sud de Madagascar, est célèbre pour sa diversité écologique unique, englobant plusieurs écosystèmes allant des forêts tropicales humides aux formations de spiny et aux prairies. Vous y trouverez une variété d'espèces de lémuriens, de plantes succulentes et d'oiseaux endémiques."
+                "description": "Cette réserve, située dans le sud de Madagascar, est célèbre pour sa diversité écologique unique, englobant plusieurs écosystèmes allant des forêts tropicales humides aux formations de spiny et aux prairies.",
+                "contenu": "Le parc est une véritable mosaïque d'écosystèmes, témoignant de la diversité écologique de Madagascar. Que ce soit pour les randonnées, l'observation des oiseaux ou l'étude des plantes endémiques, Andohahela a quelque chose à offrir à chaque passionné de nature."
             }
         ]
     }

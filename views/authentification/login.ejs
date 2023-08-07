@@ -1,4 +1,4 @@
-
+<%- include('../partials/layouts/header.ejs', { title: 'Authentification' }) %>
 <style>
     @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
@@ -455,9 +455,10 @@
                     <input type="password" name="password" id="password" placeholder="mot de passe" />
                     <span class="focus-input100"></span>
                 </div>
-                <button id="signin" type="submit">Se connecter</button>
+                <button id="signin" type="submit" class="btn text-white">Se connecter</button>
             </form>
         </div>
     </div>
 </div>
+<%- include('../partials/layouts/footer.ejs') %>
 
