@@ -1,0 +1,39 @@
+{
+    "regions": [
+        {
+            "nom": "Mahajanga",
+            "capitale": false,
+            "description": "La région de Mahajanga, également connue sous le nom de Majunga, est un véritable paradis côtier situé sur la côte nord-ouest de Madagascar. Cette région ensoleillée est célèbre pour ses plages enchanteresses, ses eaux cristallines et ses opportunités d'aventures aquatiques inoubliables.",
+            "points_interet": [
+                {
+                    "nom": "Plage de Grand Pavois",
+                    "description": "La Plage de Grand Pavois est un trésor caché de Mahajanga. Cette plage de sable fin et doré s'étend sur des kilomètres le long de la côte, offrant un cadre idyllique pour se détendre et profiter du soleil. Les eaux chaudes et calmes sont propices à la baignade, faisant de cette plage un endroit parfait pour se rafraîchir pendant les chaudes journées malgaches.",
+                    "image": "https://example.com/images/grand_pavois.jpg",
+                    "video": "",
+                    "contenu": "Les amoureux de la nature peuvent également observer une variété d'oiseaux marins et de crabes qui peuplent les alentours de la plage. Pour ceux qui aiment se promener, il est possible de marcher le long du littoral et de profiter de la vue imprenable sur l'océan."
+                },
+                {
+                    "nom": "Plage de Antsanitia",
+                    "description": "La Plage de Antsanitia est un véritable paradis isolé, situé à environ 25 kilomètres au nord de Mahajanga. Cette plage idyllique est entourée de mangroves verdoyantes et de falaises calcaires impressionnantes, créant une atmosphère paisible et préservée.",
+                    "image": "https://example.com/images/antsanitia.jpg",
+                    "video": "",
+                    "contenu": "La baignade dans les eaux claires de Antsanitia est une expérience unique, car on peut observer une vie marine variée dans les eaux peu profondes près du rivage. Les voyageurs en quête de tranquillité trouveront leur bonheur sur cette plage, où ils peuvent se détendre dans un cadre naturel préservé."
+                },
+                {
+                    "nom": "Îlot aux Tortues",
+                    "description": "L'Îlot aux Tortues est une petite île pittoresque située à proximité de Mahajanga. Cette île est un véritable paradis pour les amateurs de plongée et de snorkeling, offrant des opportunités uniques d'explorer les merveilles sous-marines de Madagascar.",
+                    "image": "https://example.com/images/ilot_tortues.jpg",
+                    "video": "",
+                    "contenu": "Les eaux entourant l'Îlot aux Tortues sont riches en coraux colorés et en une variété de poissons tropicaux. Les visiteurs peuvent explorer les récifs coralliens tout en découvrant des espèces marines fascinantes, notamment des tortues marines, des raies et des poissons multicolores."
+                },
+                {
+                    "nom": "Réserve naturelle de Bemaraha et les Tsingy de Bemaraha",
+                    "description": "Bien que située légèrement à l'écart de Mahajanga, la réserve naturelle de Bemaraha et les Tsingy de Bemaraha méritent une visite inoubliable. Ce site, classé au patrimoine mondial de l'UNESCO, est un paysage karstique unique en son genre, sculpté par l'érosion dans des formations de calcaire acéré appelées \"tsingy\".",
+                    "image": "https://example.com/images/tsingy_bemaraha.jpg",
+                    "video": "",
+                    "contenu": "Les Tsingy de Bemaraha offrent un spectacle époustouflant avec ses pitons rocheux pointus, ses canyons profonds et ses passerelles en bois qui permettent aux visiteurs de se déplacer au-dessus des crêtes acérées. C'est un véritable défi d'aventure pour les amateurs de randonnée, d'escalade et d'exploration.\n\nLa réserve naturelle de Bemaraha abrite également une faune et une flore variées, notamment des lémuriens, des oiseaux rares et des plantes endémiques. Les voyageurs passionnés de nature seront éblouis par la richesse de la biodiversité de cette région."
+                }
+            ]
+        }
+    ]
+}

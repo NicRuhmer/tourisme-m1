@@ -1,0 +1,139 @@
+<%- include('layouts/header.ejs', { title: 'Dahsboard' }) %>
+    <div class="job">
+        <div class="header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path xmlns="http://www.w3.org/2000/svg"
+                        d="M512 503.5H381.7a48 48 0 01-45.3-32.1L265 268.1l-9-25.5 2.7-124.6L338.2 8.5l23.5 67.1L512 503.5z"
+                        fill="#0473ff" data-original="#28b446" />
+                    <path xmlns="http://www.w3.org/2000/svg" fill="#0473ff" data-original="#219b38"
+                        d="M361.7 75.6L265 268.1l-9-25.5 2.7-124.6L338.2 8.5z" />
+                    <path xmlns="http://www.w3.org/2000/svg"
+                        d="M338.2 8.5l-82.2 234-80.4 228.9a48 48 0 01-45.3 32.1H0l173.8-495h164.4z" fill="#0473ff"
+                        data-original="#518ef8" />
+                </svg>
+                Anthems
+            </div>
+            <div class="user-settings">
+                <img class="user-profile"
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="">
+                <div class="user-name">Nic Ruhmer</div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="main-container">
+                <div class="search-type">
+                    <div class="alert">
+                        <div class="alert-title">Créer une catégorie</div>
+                        <div class="alert-subtitle">Créer une catégorie pour pouvoir ajouter des nouvelles contenus
+                        </div>
+                        <form action="/api/addCategories" method="POST">
+                            <input type="text" name="name" id="name" placeholder="Catégorie">
+                            <button type="submit" class="search-buttons">Créer</button>
+                        </form>
+                    </div>
+                    <div class="job-time">
+                        <div class="job-time-title">Liste des catégories</div>
+                        <div class="job-wrapper">
+                            <div class="job-wrapper">
+                                <% categories.forEach((categorie, index)=> { %>
+                                    <div class="type-container">
+                                        <!-- Lien vers la page des sous-catégories -->
+                                        <a href="/categories/<%= categorie.name %>"
+                                            for="job<%= index + 1 %>" >
+                                            <%= categorie.name %>
+                                        </a>
+                                    </div>
+                                    <% }); %>
+                            </div>
+                        </div>
+                        <!-- show a modal on click -->
+
+                        <button type="submit" class="search-buttons mt-5" data-bs-toggle="modal"
+                            data-bs-target="#sousCateg">Créer une sous-catégorie</button>
+                        <div class="modal fade" id="sousCateg" tabindex="-1" aria-labelledby="sousCategLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="sousCategLabel">Créer une sous-catégorie</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/api/addSousCategories" method="POST" enctype="multipart/form-data">
+                                            <div class="">
+                                                <label for="inputCateg" class="form-label">Catégorie</label>
+                                                <select id="inputCateg" name="categorieId" class="form-select">
+                                                    <% categories.forEach((categorie)=> { %>
+                                                        <option value="<%= categorie._id %>">
+                                                            <%= categorie.name %>
+                                                        </option>
+                                                        <% }); %>
+                                                </select>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <label for="inputSousCateg" class="form-label">Sous-catégorie</label>
+                                                <input type="text" class="form-control" name="name" id="inputSousCateg"
+                                                    placeholder="Sous-catégorie">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1"
+                                                    class="form-label">Déscription</label>
+                                                <textarea class="form-control" name="description"
+                                                    id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="formFile" class="form-label">Image</label>
+                                                <input class="form-control" type="file" id="formFile" name="image">
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit" class="search-buttons">Créer</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Annuler</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="searched-jobs">
+                    <div class="searched-bar">
+                        <div class="searched-show">Par <%= categorieName %></div>
+                        <div class="searched-sort">Filtré par: <span class="post-time">Dernière ajouté</span></div>
+                    </div>
+                    <div class="job-cards">
+                        <% sousCategories.forEach((sousCategorie)=> { %>
+                            <div class="job-card">
+                                <div class="job-card-header">
+                                    <% if (sousCategorie.image) { %>
+                                        <img src="<%= sousCategorie.image %>" alt="<%= sousCategorie.name %>" class="rounded">
+                                        <% } else { %>
+                                            <img src="/img/logo_ankara.png" alt="Image par défaut">
+                                            <% } %>
+                                                <div class="menu-dot"></div>
+                                </div>
+                                <div class="job-card-title">
+                                    <%= sousCategorie.name %>
+                                </div>
+                                <div class="job-card-subtitle">
+                                    <%= sousCategorie.description %>
+                                </div>
+                                <div class="job-card-buttons">
+                                    <a href="/sous-categorie/<%= sousCategorie.name %>">
+                                        <button class="search-buttons card-buttons">Visiter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('layouts/footer.ejs') %>

@@ -1,0 +1,28 @@
+{
+    "basse_saison": {
+        "periode": "décembre à mars",
+        "destinations": [
+            {
+                "nom": "Antananarivo (la capitale)",
+                "description": "Pendant la basse saison, Antananarivo offre l'occasion de découvrir les sites culturels et les musées de la capitale malgache. Les voyageurs peuvent visiter le Palais de la Reine (Rova), le Musée de la Photographie et le marché artisanal de Digue. La ville regorge d'histoire, d'architecture coloniale et d'artisanat local.",
+                "image": "https://example.com/images/antananarivo.jpg",
+                "video": "",
+                "contenu": "La basse saison est également propice à la visite des villages traditionnels des Hauts Plateaux, tels que le village d'Ambohimanga Rova, classé au patrimoine mondial de l'UNESCO. Ces villages offrent une immersion dans la culture malgache ancestrale et les coutumes locales, avec des maisons en terre et en bois aux toits de chaume, ainsi que des rizières en terrasses sculptant les paysages vallonnés."
+            },
+            {
+                "nom": "Fianarantsoa",
+                "description": "Fianarantsoa est une destination fascinante pendant la basse saison, offrant des possibilités de randonnée dans les montagnes environnantes et la visite du parc national de Ranomafana. Le parc national est un joyau de biodiversité avec ses forêts tropicales luxuriantes, ses cours d'eau sinueux et ses cascades pittoresques.",
+                "image": "https://example.com/images/fianarantsoa.jpg",
+                "video": "",
+                "contenu": "Pendant la basse saison, les voyageurs peuvent observer une variété d'espèces de lémuriens, de reptiles et d'oiseaux dans leur environnement naturel. Les sentiers de randonnée bien aménagés permettent aux visiteurs de découvrir la beauté de cette réserve et d'apprendre sur l'importance de la conservation de la biodiversité à Madagascar."
+            },
+            {
+                "nom": "Mahajanga (Majunga)",
+                "description": "Mahajanga est une destination idéale pendant la basse saison pour des activités nautiques et la pêche sportive. Les voyageurs peuvent profiter de ses plages pittoresques et explorer la réserve naturelle d'Ivoloina, un paradis pour les amoureux de la nature et les passionnés de faune.",
+                "image": "https://example.com/images/mahajanga.jpg",
+                "video": "",
+                "contenu": "Pendant la basse saison, Mahajanga est également un point de départ pour des excursions en bateau vers l'île aux Pangalanes, une longue série de canaux et de lacs intérieurs bordant la côte est de Madagascar. Les voyageurs peuvent explorer ce réseau d'eau douce, observer la vie quotidienne des communautés locales et découvrir une variété de faune et de flore."
+            }
+        ]
+    }
+}

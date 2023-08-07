@@ -1,0 +1,24 @@
+{
+    "experience aventure sports nautiques": {
+        "description": "L'aventure et les sports nautiques sont incontournables à Madagascar, avec ses magnifiques côtes bordées par l'océan Indien. Voici plus d'informations sur les expériences palpitantes de kitesurfing, de planche à voile et d'excursions en bateau à Mahajanga, Antsiranana et dans les îles et réserves marines environnantes.",
+        "activites": [
+            {
+                "nom": "Kitesurfing à Mahajanga",
+                "description": "Mahajanga, paradis pour les amateurs de kitesurfing. Vents réguliers et vastes lagunes peu profondes pour des conditions idéales. Opportunités pour les débutants et les expérimentés. Apprenez à manier la voile et glisser sur les eaux turquoise, entouré de paysages côtiers spectaculaires."
+            },
+            {
+                "nom": "Planche à voile à Antsiranana (Diego Suarez)",
+                "description": "Antsiranana, destination de choix pour les passionnés de planche à voile. Baie de Diego Suarez offre des eaux calmes et une brise constante, conditions optimales pour la planche à voile. Sessions inoubliables tout en admirant le paysage spectaculaire."
+            },
+            {
+                "nom": "Excursions en bateau pour explorer les îles et réserves marines",
+                "description": "Madagascar abrite des îles magnifiques et réserves marines préservées, accessibles par des excursions en bateau. Archipel de Nosy Be, Nosy Tanikely, Nosy Iranja, Nosy Mitsio et Nosy Komba offrent plages de sable blanc, eaux cristallines pour la plongée en apnée et plongée sous-marine. Possibilité de rencontrer des espèces marines uniques, telles que les tortues, les dauphins et les requins baleines (selon la saison)."
+            },
+            {
+                "nom": "Plongée sous-marine et snorkeling",
+                "description": "Pour les passionnés de plongée sous-marine et de snorkeling, Madagascar est un véritable joyau. Réserves marines comme Nosy Tanikely et Nosy Iranja offrent des sites époustouflants avec récifs coralliens colorés et faune marine variée. Nagez aux côtés de poissons tropicaux, de tortues, de raies et observez des requins inoffensifs dans leur environnement naturel (selon chance)."
+            }
+        ],
+        "respect_environnement_marin": "Lors des activités nautiques, respectez l'environnement marin. Évitez de perturber la vie marine, ne jetez pas de déchets dans l'eau et suivez les directives des guides locaux pour préserver la beauté naturelle de Madagascar."
+    }
+}

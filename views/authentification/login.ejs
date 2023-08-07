@@ -1,0 +1,463 @@
+<%- include('../sections/header') %>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: linear-gradient(45deg, #26265e, #44cba3);
+        /* background-image: url("../../assets/img/bg-login.png"); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: "Montserrat", sans-serif;
+        height: 100vh;
+        margin: 0 !important;
+    }
+
+    h1 {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+        margin: 20px 0 30px;
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    a {
+        color: #333;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+    }
+
+    button:hover {
+        transition: 0.4s;
+        opacity: 0.7;
+    }
+
+    button {
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 10px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        background: linear-gradient(1deg, #8E2DE2, #4A00E0);
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    button.ghost {
+        background-color: transparent;
+        border-color: #ffffff;
+    }
+
+    form {
+        background-color: #ffffff;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        /* text-align: center; */
+        overflow-y: scroll;
+    }
+
+    .right-panel-active form {
+        padding-top: 218px;
+        padding-bottom: 52px;
+    }
+
+    .right-panel-active form button {
+        margin-top: 21px;
+    }
+
+    form a,
+    form h1 {
+        color: #25265e !important;
+    }
+
+    input {
+        background-color: rgb(246 245 247) !important;
+        color: #25265e !important;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+        height: 40px !important;
+    }
+
+    .container {
+        background-color: #fff;
+        border-radius: 24px;
+        box-shadow: 0 16px 39px -37px black;
+        position: relative;
+        overflow: hidden;
+        width: 450px;
+        max-width: 100%;
+        min-height: 553px;
+    }
+
+    .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .sign-in-container {
+        left: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .container.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+    }
+
+    .sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .forgot-password-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+    }
+
+    .container.right-panel-active .forgot-password-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+    }
+
+    @keyframes show {
+
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+
+    .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+    }
+
+    .container.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+    }
+
+    .overlay {
+        background: #25265e;
+        background: -webkit-linear-gradient(to right, #25265e, #25265e);
+        background: linear-gradient(to right, #25265e, #25265e);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: #ffffff;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .container.right-panel-active .overlay {
+        transform: translateX(50%);
+    }
+
+    .overlay-panel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .overlay-panel p {
+        color: white;
+        font-size: 16px;
+    }
+
+    .overlay-panel button {
+        background-color: #ffffff38 !important;
+    }
+
+    .overlay-center {
+        transform: translateX(-20%);
+    }
+
+    .container.right-panel-active .overlay-center {
+        transform: translateX(0);
+    }
+
+
+    .overlay-left {
+        transform: translateX(-20%);
+    }
+
+    .container.right-panel-active .overlay-left {
+        transform: translateX(0);
+    }
+
+    .overlay-right {
+        right: 0;
+        transform: translateX(0);
+    }
+
+    .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+    }
+
+    .social-container {
+        margin: 20px 0;
+    }
+
+    .social-container a {
+        border: 1px solid #dddddd;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        height: 40px;
+        width: 40px;
+        background-color: #44cba3;
+    }
+
+    footer {
+        background-color: #222;
+        color: #fff;
+        font-size: 14px;
+        bottom: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+
+    footer p {
+        margin: 10px 0;
+    }
+
+    footer i {
+        color: red;
+    }
+
+    footer a {
+        color: #3c97bf;
+        text-decoration: none;
+    }
+
+    .input100 {
+        margin: 0px 0 4px !important;
+    }
+
+    .title-create {
+        margin-bottom: 29px !important;
+    }
+
+    h4 {
+        color: #3b3b3b;
+        text-align: center;
+        width: 100%;
+        font-size: 2em;
+    }
+
+    .coordinates {
+        color: #202020;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 16px;
+        font-size: 12px;
+    }
+
+    .messages {
+        color: red;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 16px;
+        font-size: 12px;
+    }
+
+    .vg-email,
+    .vg-pass {
+        position: relative;
+        margin-top: 6px;
+    }
+
+    .vg-email label {
+        font-size: 12px;
+        background: #ffffff;
+        width: 50px;
+        text-align: left;
+        padding: 0 0 0 7px;
+        height: 14px;
+        position: absolute;
+        top: 0;
+        margin-top: 0;
+        left: 7px;
+        color: #4e4d4f;
+    }
+
+    .vg-pass label {
+        font-size: 12px;
+        background: #ffffff;
+        width: 100px;
+        text-align: left;
+        padding: 0 0 0 7px;
+        height: 14px;
+        position: absolute;
+        top: 0;
+        margin-top: 0;
+        left: 7px;
+        color: #4e4d4f;
+    }
+
+    input {
+        border: 1px solid #e6e6e6 !important;
+        background-color: #fff !important;
+    }
+
+    input:focus {
+        border: 1px solid #57cc95 !important
+    }
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+
+    .forgot {
+        text-align: end;
+        margin: 6px 0 13px;
+        font-size: 12px;
+    }
+
+    .or {
+        border-top: 1px solid #dadada;
+        margin-top: 36px;
+        position: relative;
+    }
+
+    .or div {
+        color: #555050;
+        text-align: center;
+        font-weight: lighter;
+        background: #ffffff;
+        width: 41px;
+        margin: auto;
+        position: relative;
+        top: -11px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+    .or-signup {
+        text-align: center;
+        margin: 11px 0;
+    }
+
+    .or-signup span {
+        color: #4e4d4f;
+    }
+
+    .or-signup a {
+        color: #4e42cd !important;
+        font-size: 12px;
+    }
+
+    .or-signup a:hover,
+    .forgot:hover {
+        text-decoration: underline;
+    }
+
+    #chatbot {
+        background: #fff !important;
+    }
+
+    .form-container h4 {
+        margin-top: 35px;
+    }
+</style>
+<div id="bl-login">
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="/loginAdmin" method="POST">
+                <h4 class="text-center">Se connecter</h4>
+                <p class="coordinates text-center">Bonjour, pour vous connecter, veillez entrer votre nom d'utilisateur
+                    et votre mot de passe</p>
+                <div class="vg-email mb-3">
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="email" placeholder="exemple@gmail.com" />
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="vg-pass">
+                    <label for="">Mot&nbsp;de&nbsp;passe</label>
+                    <input type="password" name="password" id="password" placeholder="mot de passe" />
+                    <span class="focus-input100"></span>
+                </div>
+                <button id="signin" type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../sections/footer') %>

@@ -1,0 +1,48 @@
+{
+    "plages et littoral": [
+        {
+            "nom": "Détente sur les magnifiques plages de sable blanc et turquoise",
+            "description": "Plages parmi les plus belles au monde. Sable fin blanc éblouissant, eaux cristallines aux nuances de bleu et de turquoise.",
+            "activites": [
+                "Prélassement sous le soleil tropical",
+                "Contemplation des paysages paradisiaques",
+                "Lecture à l'ombre des palmiers",
+                "Profiter de la brise marine rafraîchissante"
+            ],
+            "exemples": [
+                "Anse Lazio à l'île de Praslin",
+                "Nosy Iranja",
+                "Nosy Be"
+            ]
+        },
+        {
+            "nom": "Plongée sous-marine",
+            "description": "Destination incontournable pour les amateurs de plongée. Récifs coralliens préservés, poissons tropicaux colorés, tortues marines majestueuses, raies manta, requins baleines.",
+            "spots_reputes": [
+                "Île Sainte-Marie",
+                "Nosy Be",
+                "Tuléar",
+                "Archipel des Mitsio"
+            ],
+            "niveaux_experience": "Adapté aux plongeurs de tous niveaux"
+        },
+        {
+            "nom": "Sports nautiques",
+            "description": "Terrain de jeu idéal pour les amateurs de sports nautiques. Kitesurf, planche à voile, kayak, jet-ski.",
+            "conditions_ventees": "Certaines régions offrent des conditions favorables",
+            "possibilite_initiation": "Idéal pour découvrir de nouvelles activités nautiques"
+        },
+        {
+            "nom": "Observation des baleines (en saison)",
+            "description": "Expérience magique d'observation des baleines à bosse. Période : De juin à septembre. Baleines qui migrent des eaux froides de l'Antarctique vers l'océan Indien pour se reproduire et mettre bas.",
+            "activites_observation": [
+                "Sauts hors de l'eau",
+                "Frappes de la surface avec leurs nageoires",
+                "Écoute de leurs chants"
+            ],
+            "lieux_reputes": [
+                "Baie d'Antongil à Sainte-Marie"
+            ]
+        }
+    ]
+}

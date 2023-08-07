@@ -1,0 +1,32 @@
+{
+  "regions": [
+    {
+      "nom": "Antananarivo",
+      "capitale": true,
+      "description": "La région d'Antananarivo (Tana) est le centre névralgique de Madagascar, situé au cœur de l'île. En tant que capitale, elle est le siège du gouvernement, le principal centre économique et le point de convergence de diverses cultures malgaches.",
+      "points_interet": [
+        {
+          "nom": "Palais de la Reine (Rova)",
+          "description": "Le Palais de la Reine, également connu sous le nom de Rova, est l'une des principales attractions historiques de la région. Il est situé sur la colline d'Ambohimanga, à environ 24 kilomètres au nord d'Antananarivo. Le Rova est un symbole de l'histoire royale de Madagascar et était autrefois la résidence des monarques Merina. Cette forteresse en bois offre une vue panoramique imprenable sur la capitale. L'architecture traditionnelle, les toits pointus et les sculptures ornementales témoignent de la richesse culturelle de l'époque.",
+          "image": "https://example.com/images/palais_rova.jpg",
+          "video": "",
+          "contenu": "L'expérience de la visite du Palais de la Reine est une véritable plongée dans le passé de Madagascar. Les visiteurs peuvent en apprendre davantage sur la monarchie malgache, l'organisation sociale et les coutumes ancestrales. Les guides locaux sont disponibles pour fournir des explications détaillées et partager des histoires fascinantes sur la dynastie royale."
+        },
+        {
+          "nom": "Musée de la Photographie",
+          "description": "Le Musée de la Photographie, situé dans le centre-ville d'Antananarivo, est un lieu incontournable pour les amateurs d'histoire et de photographie. Ce musée unique en son genre présente une vaste collection de photographies anciennes et historiques, couvrant différentes époques de Madagascar. À travers ces clichés, les visiteurs peuvent découvrir l'évolution de la société malgache, des paysages naturels et des traditions culturelles au fil du temps.",
+          "image": "https://example.com/images/musee_photographie.jpg",
+          "video": "",
+          "contenu": "Les photographies exposées offrent un regard émouvant sur le patrimoine culturel et naturel de Madagascar, ainsi que sur les moments clés de son histoire, notamment la colonisation française et la lutte pour l'indépendance. C'est une occasion rare de se connecter avec le passé et de mieux comprendre le contexte culturel de l'île."
+        },
+        {
+          "nom": "Marché artisanal de Digue",
+          "description": "Le marché artisanal de Digue est un lieu vivant et coloré, situé au cœur d'Antananarivo. C'est l'endroit idéal pour découvrir l'artisanat malgache authentique et acheter des souvenirs uniques. Les étals débordent d'objets artisanaux, allant des textiles traditionnels faits à la main aux sculptures en bois sculptées avec minutie.",
+          "image": "https://example.com/images/marche_artisana_digue.jpg",
+          "video": "",
+          "contenu": "Les visiteurs peuvent se promener dans les allées animées du marché et interagir avec les artisans locaux, qui sont souvent ravis de partager leur savoir-faire et leur culture. C'est l'occasion de ramener chez soi des pièces uniques et de soutenir l'économie locale. Parmi les objets prisés, on trouve les fameux \"lambas\" (écharpes traditionnelles), les sculptures sur bois, les paniers tressés et les épices aromatiques."
+        }
+      ]
+    }
+  ]
+}

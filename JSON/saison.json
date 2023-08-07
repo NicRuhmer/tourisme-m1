@@ -1,0 +1,56 @@
+{
+    "saisons": {
+        "haute_saison": {
+            "periode": "avril à novembre",
+            "destinations": [
+                {
+                    "nom": "Antsiranana (Diego Suarez)",
+                    "description": "Pendant la haute saison, Antsiranana est un paradis pour les activités nautiques et l'exploration des îles avoisinantes. La région offre des eaux turquoise, des plages pittoresques et des spots de plongée exceptionnels. Les voyageurs peuvent découvrir l'archipel des Mitsio, idéal pour la plongée sous-marine et le snorkeling. L'île de Nosy Be est également un incontournable, réputée pour ses plages immaculées et ses paysages tropicaux.",
+                    "image": "https://example.com/images/antsiranana.jpg",
+                    "video": "",
+                    "contenu": "Les visiteurs peuvent profiter de balades en bateau pour explorer les îles environnantes, observer les oiseaux marins et se détendre sur des plages isolées. Antsiranana est également un point de départ pour des excursions vers la Réserve de Lokobe, une forêt tropicale préservée abritant une grande variété d'espèces de lémuriens et de faune endémique."
+                },
+                {
+                    "nom": "Toamasina (Tamatave)",
+                    "description": "Toamasina est une destination côtière dynamique, idéale pour profiter des plages magnifiques et des excursions en bateau dans la mangrove. La ville offre une ambiance animée avec ses marchés colorés et ses restaurants de fruits de mer. Les voyageurs peuvent se détendre sur la plage de l'île aux Cerfs et explorer l'intérieur de l'île, qui abrite une végétation luxuriante et une faune variée.",
+                    "image": "https://example.com/images/toamasina.jpg",
+                    "video": "",
+                    "contenu": "En haute saison, Toamasina offre des conditions idéales pour les activités nautiques telles que le surf, la planche à voile et la voile. Les amoureux de la nature peuvent également partir en excursion dans les réserves naturelles environnantes, comme la réserve spéciale de Nosy Mangabe, pour observer des lémuriens et des reptiles fascinants."
+                },
+                {
+                    "nom": "Toliara (Tuléar)",
+                    "description": "Toliara est réputée pour ses plages pittoresques et les parcs nationaux environnants. Les voyageurs peuvent découvrir la plage de Ifaty, connue pour ses eaux cristallines et ses spots de plongée sous-marine. Les parcs nationaux d'Isalo et de Zombitse-Vohibasia offrent des paysages spectaculaires avec des canyons, des formations rocheuses et une flore unique.",
+                    "image": "https://example.com/images/toliara.jpg",
+                    "video": "",
+                    "contenu": "En haute saison, Toliara est également un excellent point de départ pour les excursions vers la réserve de Berenty, où l'on peut observer des lémuriens dans leur habitat naturel. Les voyageurs peuvent également visiter le parc national de Tsimanampetsotsa pour observer des flamants roses dans le lac salé."
+                }
+            ]
+        },
+        "basse_saison": {
+            "periode": "décembre à mars",
+            "destinations": [
+                {
+                    "nom": "Antananarivo (la capitale)",
+                    "description": "Pendant la basse saison, Antananarivo offre l'occasion de découvrir les sites culturels et les musées de la capitale malgache. Les voyageurs peuvent visiter le Palais de la Reine (Rova), le Musée de la Photographie et le marché artisanal de Digue. La ville regorge d'histoire, d'architecture coloniale et d'artisanat local.",
+                    "image": "https://example.com/images/antananarivo.jpg",
+                    "video": "",
+                    "contenu": "La basse saison est également propice à la visite des villages traditionnels des Hauts Plateaux, tels que le village d'Ambohimanga Rova, classé au patrimoine mondial de l'UNESCO. Ces villages offrent une immersion dans la culture malgache ancestrale et les coutumes locales, avec des maisons en terre et en bois aux toits de chaume, ainsi que des rizières en terrasses sculptant les paysages vallonnés."
+                },
+                {
+                    "nom": "Fianarantsoa",
+                    "description": "Fianarantsoa est une destination fascinante pendant la basse saison, offrant des possibilités de randonnée dans les montagnes environnantes et la visite du parc national de Ranomafana. Le parc national est un joyau de biodiversité avec ses forêts tropicales luxuriantes, ses cours d'eau sinueux et ses cascades pittoresques.",
+                    "image": "https://example.com/images/fianarantsoa.jpg",
+                    "video": "",
+                    "contenu": "Pendant la basse saison, les voyageurs peuvent observer une variété d'espèces de lémuriens, de reptiles et d'oiseaux dans leur environnement naturel. Les sentiers de randonnée bien aménagés permettent aux visiteurs de découvrir la beauté de cette réserve et d'apprendre sur l'importance de la conservation de la biodiversité à Madagascar."
+                },
+                {
+                    "nom": "Mahajanga (Majunga)",
+                    "description": "Mahajanga est une destination idéale pendant la basse saison pour des activités nautiques et la pêche sportive. Les voyageurs peuvent profiter de ses plages pittoresques et explorer la réserve naturelle d'Ivoloina, un paradis pour les amoureux de la nature et les passionnés de faune.",
+                    "image": "https://example.com/images/mahajanga.jpg",
+                    "video": "",
+                    "contenu": "Pendant la basse saison, Mahajanga est également un point de départ pour des excursions en bateau vers l'île aux Pangalanes, une longue série de canaux et de lacs intérieurs bordant la côte est de Madagascar. Les voyageurs peuvent explorer ce réseau d'eau douce, observer la vie quotidienne des communautés locales et découvrir une variété de faune et de flore."
+                }
+            ]
+        }
+    }
+}

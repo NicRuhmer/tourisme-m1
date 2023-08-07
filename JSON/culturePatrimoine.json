@@ -1,0 +1,27 @@
+{
+    "experience culturelle": {
+        "description": "La culture et le patrimoine de Madagascar sont profondément ancrés dans son histoire fascinante et dans la richesse de ses traditions. En explorant les sites historiques et les marchés animés d'Antananarivo et de Fianarantsoa, vous serez plongé dans l'âme même de l'île.",
+        "points_importants": [
+            {
+                "nom": "Antananarivo - La capitale historique",
+                "description": "Capitale politique et culturelle de Madagascar. Perchée sur les collines, offre des vues panoramiques impressionnantes. Visite du Rova d'Antananarivo (Palais de la Reine), classé au patrimoine mondial de l'UNESCO, pour découvrir l'histoire de la royauté malgache."
+            },
+            {
+                "nom": "Marchés colorés",
+                "description": "Les marchés à Madagascar sont des lieux animés où vous pourrez découvrir une grande variété de produits locaux. Le marché d'Analakely à Antananarivo est un incontournable. Interagissez avec les vendeurs locaux et goûtez à la cuisine malgache authentique."
+            },
+            {
+                "nom": "Fianarantsoa - Le centre culturel de Madagascar",
+                "description": "Ville réputée pour sa scène artistique, musique traditionnelle, danses folkloriques et production de vin unique à Madagascar. Explorez les boutiques d'artisanat local pour trouver des souvenirs uniques."
+            },
+            {
+                "nom": "La culture malgache",
+                "description": "Imprégnée de croyances animistes, rites ancestraux et valeurs communautaires fortes. Assister à des cérémonies traditionnelles comme les famadihanas et être témoin de danses et de chants folkloriques lors de festivals locaux."
+            },
+            {
+                "nom": "Rencontres avec les habitants",
+                "description": "Les Malgaches sont réputés pour leur hospitalité chaleureuse. Échangez avec les locaux, découvrez leur mode de vie et leur artisanat, et apprenez davantage sur la diversité des traditions et des coutumes de la culture malgache."
+            }
+        ]
+    }
+}
