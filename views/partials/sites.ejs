@@ -140,6 +140,10 @@
                                             <a href="/site/<%= site.name %>">
                                                 <button class="search-buttons card-buttons">Visiter</button>
                                             </a>
+                                            <button type="button" class="search-buttons" data-bs-toggle="modal"
+                                                data-bs-target="#modif_<%= site._id %>">
+                                                Modifier
+                                            </button>
                                         </div>
                                     </div>
                                     <% }); %>
@@ -200,6 +204,67 @@
                         </div>
                     </div>
                 </div>
+
+                <% sites.forEach((site)=> { %>
+                    <div class="modal fade" id="modif_<%= site._id %>" tabindex="-1"
+                        aria-labelledby="sousCategLabel_<%= site._id %>" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="sousCategLabel_<%= site._id %>">Modifier
+                                        la
+                                        sous-catégorie</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/api/updateSite" method="POST" enctype="multipart/form-data">
+                                        <div class="">
+                                            <label for="inputSousCateg" class="form-label">Sous-Catégorie</label>
+                                            <select id="inputSousCateg" name="sousCategorieId" class="form-select">
+                                                <% sousCategories.forEach((sousCategorie)=> { %>
+                                                    <option value="<%= sousCategorie._id %>">
+                                                        <%= sousCategorie.name %>
+                                                    </option>
+                                                    <% }); %>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="inputSite" class="form-label">Site</label>
+                                            <input type="text" class="form-control" name="name" id="inputSite"
+                                                placeholder="Site touristique">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1"
+                                                class="form-label">Déscription</label>
+                                            <textarea class="form-control" name="description"
+                                                id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Image</label>
+                                            <input class="form-control" type="file" id="formFile" name="image" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Video (facultatif)</label>
+                                            <input class="form-control" type="file" id="formFile" name="video">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="contenu" class="form-label">Contenu</label>
+                                            <textarea class="form-control cke_dialog" name="contenu" id="contenu"
+                                                rows="3"></textarea>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="search-buttons">Créer</button>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Annuler</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
             </div>
         </div>
     </div>

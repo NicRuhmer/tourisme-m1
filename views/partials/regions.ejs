@@ -131,11 +131,69 @@
                                     <a href="/sous-categorie/<%= sousCategorie.name %>">
                                         <button class="search-buttons card-buttons">Visiter</button>
                                     </a>
+                                    <button type="button" class="search-buttons" data-bs-toggle="modal"
+                                        data-bs-target="#modif_<%= sousCategorie._id %>">
+                                        Modifier
+                                    </button>
                                 </div>
                             </div>
                             <% }); %>
                     </div>
                 </div>
+                <!-- Modal pour modification -->
+                <% sousCategories.forEach((sousCategorie)=> { %>
+                    <div class="modal fade" id="modif_<%= sousCategorie._id %>" tabindex="-1"
+                        aria-labelledby="sousCategLabel_<%= sousCategorie._id %>" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="sousCategLabel_<%= sousCategorie._id %>">Modifier
+                                        la
+                                        sous-catégorie</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="updateForm" action="/api/updateSousCategorie/<%= sousCategorie._id %>"
+                                        method="POST" enctype="multipart/form-data">
+                                        <div class="">
+                                            <label for="categ" class="form-label">Catégorie</label>
+                                            <select id="categ" name="categorieId" class="form-select" required>
+                                                <% categories.forEach((categorie)=> { %>
+                                                    <option value="<%= categorie._id %>">
+                                                        <%= categorie.name %>
+                                                    </option>
+                                                    <% }); %>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="SousCateg" class="form-label">Sous-catégorie</label>
+                                            <input type="text" class="form-control" name="name" id="SousCateg"
+                                                placeholder="Sous-catégorie" value="<%= sousCategorie.name %>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="descript" class="form-label">Déscription</label>
+                                            <textarea class="form-control" name="description" id="descript" rows="3"
+                                                required><%= sousCategorie.description %></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Image</label>
+                                            <input class="form-control" type="file" id="formFile" name="image" required>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" data-id="<%= sousCategorie._id %>"
+                                                class="search-buttons" id="updateSous">Modifier</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Annuler</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
             </div>
         </div>
     </div>
