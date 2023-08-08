@@ -100,19 +100,25 @@ const appUserController = {
 
             if (!user) {
                 res.status(400).send({ message: "Connection échoué" });
-            }
-            const passwordMatch = await bcrypt.compare(req.body.password, user.password);
-            if (!passwordMatch) {
-                res.status(400).send({ message: "Connection échoué" });
             } else {
+                if (req.body.password) {
+                    const passwordMatch = await bcrypt.compare(req.body.password, user.password);
+                    if (!passwordMatch) {
+                        res.status(400).send({ message: "Connection échoué" });
+                    } else {
 
-                const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-                req.session.user = user;
-                req.session.message = "Connexion réussie";
-                res.cookie('token', token);
+                        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+                        req.session.user = user;
+                        req.session.message = "Connexion réussie";
+                        res.cookie('token', token);
 
-                res.status(200).send(user);
+                        res.status(200).send(user);
+                    }
+                } else {
+                    res.status(400).send({ message: "Connection échoué" });
+                }
             }
+
 
         }
         catch (err) {
